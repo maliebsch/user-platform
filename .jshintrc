@@ -1,0 +1,16 @@
+{
+    "moz": true,
+    "esversion": 6,
+    "esnext": false,
+    "jest": true,
+    "globals": {},
+    "globalstrict": false,
+    "quotmark": true,
+    "smarttabs": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "maxerr": 10000,
+    "devel": true,
+    "predef": ["require", "exports"]
+}
