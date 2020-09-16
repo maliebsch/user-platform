@@ -46,7 +46,7 @@ a {
 }
 
 .btn {
-    background-color: #ffe65e;
+    background-color: #e1c699;
     color: #000000;
     padding: 15px 40px;
     border: none;
@@ -60,7 +60,7 @@ a {
 .loader,
 .loader:before,
 .loader:after {
-    background: #ffe65e;
+    background: #e1c699;
     -webkit-animation: load1 1s infinite ease-in-out;
     animation: load1 1s infinite ease-in-out;
     width: 1em;

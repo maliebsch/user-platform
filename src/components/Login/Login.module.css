@@ -9,8 +9,12 @@
     margin: 0;
 }
 
-.yellow {
-    color: #ffe65e;
+.underline {
+    color: #fff;
+}
+
+.underline:hover {
+    text-decoration: underline;
 }
 
 @media only screen and (max-device-width: 766px) {

@@ -61,7 +61,7 @@ class Login extends Component {
         </form>
         <p className={styles.info}>
           New to our platform?
-          <Link to="/signup" className={styles.yellow} alt="signUp">
+          <Link to="/signup" className={styles.underline} alt="signUp">
             {' '}
             Sign up
           </Link>

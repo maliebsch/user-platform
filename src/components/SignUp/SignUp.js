@@ -49,7 +49,7 @@ class SignUp extends Component {
     }
     return (
       <div className={styles.signUp}>
-        <h1 className={appStyles.h1}>Hackathon</h1>
+        <h1 className={appStyles.h1}>User platform</h1>
         <form
           className={formStyles.signUpForm}
           onSubmit={(e) => this.onSubmitHandler(e)}

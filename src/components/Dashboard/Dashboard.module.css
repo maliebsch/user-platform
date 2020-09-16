@@ -1,0 +1,113 @@
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+}
+
+.dashboardMain {
+    max-width: 1520px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userProfileGreeting {
+    text-transform: capitalize;
+}
+
+.userProfileImg {
+    max-width: 150px;
+    height: auto;
+}
+
+.accountIcon {
+    font-size: 120px !important;
+}
+
+.dashboardContainer {
+    border: 2px solid #e1c699;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    color: #000000;
+    width: 350px;
+    height: 300px;
+    margin-bottom: 50px;
+}
+
+.containerHeader {
+    background-color: #e1c699;
+    z-index: 20;
+    padding: 10px;
+}
+
+.containerMain {
+    padding: 10px;
+    max-width: 100%;
+}
+
+
+.containerTitle {
+    margin: 0;
+    font-weight: 500;
+}
+
+.logout {
+    color: #fff;
+    background-color: #e1c699;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-device-width: 766px) {
+    .dashboardHeader {
+        margin: 0;
+        justify-content: space-evenly;
+    }
+
+    .dashboardMain {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .userProfileImg {
+        max-width: 60px;
+    }
+
+    .logout {
+        display: none;
+    }
+
+    .dashboardContainer {
+        width: 250px;
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 150px;
+    }
+
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 968px) {
+    .dashboardContainer {
+        width: 300px;
+    }
+}
+
+@media only screen and (min-device-width: 767px) {
+    .userProfileImg {
+        max-width: 100px;
+    }
+
+    .dashboardMain {
+        flex-flow: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+}

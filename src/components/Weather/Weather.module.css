@@ -1,0 +1,39 @@
+.weatherIcon {
+    max-width: 100px;
+    height: auto;
+}
+
+.weatherInfo {
+    display: flex;
+    align-items: center;
+}
+
+.temperature {
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.location {
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.calenderIcon {
+    font-size: 120px !important;
+}
+
+@media only screen and (max-device-width: 767px) {
+    .liveHelpIcon {
+        font-size: 80px !important;
+    }
+
+    .temperature {
+        font-size: 20px;
+    }
+
+    .location {
+        font-size: 23px;
+    }
+}
