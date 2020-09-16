@@ -1,0 +1,105 @@
+.loginForm,
+.signUpForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 25px;
+    padding: 25px;
+}
+
+.signUpCred {
+    flex-direction: column;
+    margin-bottom: 0 !important;
+}
+
+.signUpCred .inputField {
+    margin-bottom: 80px;
+}
+
+.loginCred,
+.signUpCred {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+
+.formControl {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.inputField {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    border: none;
+    border-bottom: 2px solid #fff;
+    font-size: 25px;
+    font-family: inherit;
+}
+
+.inputField::placeholder {
+    color: #fff;
+}
+
+.inputField:focus,
+.btn:focus {
+    outline: none;
+}
+
+.cta {
+    margin-bottom: 100px;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.btn {
+    background-color: #ffe65e;
+    color: #000000;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    min-width: 250px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(85%);
+}
+
+@media only screen and (max-device-width: 767px) {
+
+    .loginForm,
+    .signUpForm {
+        padding: 15px 0;
+    }
+
+    .loginCred {
+        flex-direction: column;
+    }
+
+    .inputField {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .cta {
+        margin-bottom: 30px;
+    }
+
+    .signUpCred .inputField {
+        margin-bottom: 40px;
+    }
+
+    .formControl {
+        justify-content: center;
+        flex-direction: column;
+    }
+}

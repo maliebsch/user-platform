@@ -1,0 +1,29 @@
+.login {
+    max-width: 100%;
+    margin: 50px auto;
+    position: relative;
+}
+
+.info {
+    font-size: 30px;
+    margin: 0;
+}
+
+.yellow {
+    color: #ffe65e;
+}
+
+@media only screen and (max-device-width: 766px) {
+    .info {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-device-width: 1200px) {
+    .info {
+        margin: 0;
+        position: unset;
+        left: unset;
+        bottom: unset;
+    }
+}
