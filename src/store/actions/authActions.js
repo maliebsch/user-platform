@@ -26,3 +26,27 @@ export const logout = () => {
       });
   };
 };
+
+export const signUp = (newUser) => {
+  return (dispatch, getState, { getFirestore, getFirebase }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    //create user, sync auth data with firestore, define user profile
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .then((resp) => {
+        return firestore.collection('users').doc(resp.user.uid).set({
+          username: newUser.username,
+          profileImage: newUser.imageURL,
+        });
+      })
+      .then(() => {
+        dispatch({ type: 'SIGNUP_SUCCESS' });
+      })
+      .catch((error) => {
+        dispatch({ type: 'SIGNUP_ERROR', error });
+      });
+  };
+};
