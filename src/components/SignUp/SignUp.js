@@ -48,10 +48,13 @@ class SignUp extends Component {
       return <Redirect to="/dashboard" />;
     }
     return (
-      <div className={styles.signUp}>
-        <h1 className={appStyles.h1}>User platform</h1>
+      <div className={styles.signUp} data-test="component-signUp">
+        <h1 className={appStyles.h1} data-test="heading-signUp">
+          User platform
+        </h1>
         <form
           className={formStyles.signUpForm}
+          data-test="signUp-form"
           onSubmit={(e) => this.onSubmitHandler(e)}
         >
           <div className={formStyles.signUpCred}>
@@ -88,7 +91,7 @@ class SignUp extends Component {
               />
             </div>
           </div>
-          <div className={styles.cta}>
+          <div className={styles.cta} data-test="img-upload">
             <label htmlFor="imgURL" className={styles.imgUpload}>
               Add picture
             </label>
@@ -99,10 +102,13 @@ class SignUp extends Component {
               onChange={(e) => this.onSelectionHandler(e)}
             />
 
-            <button className={cx(formStyles.btn, styles.btnAlt)}>
+            <button
+              className={cx(formStyles.btn, styles.btnAlt)}
+              data-test="register-button"
+            >
               Register
             </button>
-            <div className={formStyles.errorMessage}>
+            <div className={formStyles.errorMessage} data-test="error-message">
               {authError ? <p>{authError}</p> : null}
             </div>
           </div>
