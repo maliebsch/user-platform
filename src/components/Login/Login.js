@@ -30,10 +30,13 @@ class Login extends Component {
       return <Redirect to="/dashboard" />;
     }
     return (
-      <div className={styles.login}>
-        <h1 className={appStyles.h1}>User platform</h1>
+      <div className={styles.login} data-test="component-login">
+        <h1 className={appStyles.h1} data-test="heading-login">
+          User platform
+        </h1>
         <form
           className={formStyles.loginForm}
+          data-test="login-form"
           onSubmit={(e) => this.onSubmitHandler(e)}
         >
           <div className={formStyles.loginCred}>
@@ -59,7 +62,7 @@ class Login extends Component {
             </div>
           </div>
         </form>
-        <p className={styles.info}>
+        <p className={styles.info} data-test="signUp-info">
           New to our platform?
           <Link to="/signup" className={styles.underline} alt="signUp">
             {' '}
