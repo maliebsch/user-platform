@@ -47,4 +47,55 @@ describe('signup component', () => {
     const formErrorMessage = findByTestAttr(component.dive(), 'error-message');
     expect(formErrorMessage.length).toBe(1);
   });
+
+  describe('username input', () => {
+    test('should capture username correctly onChange', () => {
+      let signUpComp = component.dive();
+      const username = findByTestAttr(signUpComp, 'username-input');
+      username.value = 'testname';
+      username.prop('onChange')({
+        target: { id: 'username', value: 'testname' },
+      });
+      signUpComp.update();
+      expect(signUpComp.state('username')).toBe('testname');
+    });
+  });
+
+  describe('email input', () => {
+    test('should capture email correctly onChange', () => {
+      let signUpComp = component.dive();
+      const email = findByTestAttr(signUpComp, 'email-input');
+      email.value = 'testemail';
+      email.prop('onChange')({
+        target: { id: 'email', value: 'testemail' },
+      });
+      signUpComp.update();
+      expect(signUpComp.state('email')).toBe('testemail');
+    });
+  });
+
+  describe('password input', () => {
+    test('should capture password correctly onChange', () => {
+      let signUpComp = component.dive();
+      const password = findByTestAttr(signUpComp, 'password-input');
+      password.value = 'testpw';
+      password.prop('onChange')({
+        target: { id: 'password', value: 'testpw' },
+      });
+      signUpComp.update();
+      expect(signUpComp.state('password')).toBe('testpw');
+    });
+  });
+  describe('password input confirmation', () => {
+    test('should capture password confirmation correctly onChange', () => {
+      let signUpComp = component.dive();
+      const password = findByTestAttr(signUpComp, 'confirmPw-input');
+      password.value = 'testpw';
+      password.prop('onChange')({
+        target: { id: 'password', value: 'testpw' },
+      });
+      signUpComp.update();
+      expect(signUpComp.state('password')).toBe('testpw');
+    });
+  });
 });

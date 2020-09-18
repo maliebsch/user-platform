@@ -62,6 +62,7 @@ class SignUp extends Component {
               <input
                 type="text"
                 id="username"
+                data-test="username-input"
                 placeholder="Username"
                 className={formStyles.inputField}
                 onChange={(e) => this.onChangeHandler(e)}
@@ -70,6 +71,7 @@ class SignUp extends Component {
                 type="text"
                 id="email"
                 placeholder="Email"
+                data-test="email-input"
                 className={formStyles.inputField}
                 onChange={(e) => this.onChangeHandler(e)}
               />
@@ -79,12 +81,14 @@ class SignUp extends Component {
                 type="password"
                 id="password"
                 placeholder="Password"
+                data-test="password-input"
                 className={formStyles.inputField}
                 onChange={(e) => this.onChangeHandler(e)}
               />
               <input
                 type="password"
                 id="confirmPassword"
+                data-test="confirmPw-input"
                 placeholder="Confirm password"
                 className={formStyles.inputField}
                 onChange={(e) => this.onChangeHandler(e)}
