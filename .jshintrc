@@ -1,6 +1,6 @@
 {
     "moz": true,
-    "esversion": 6,
+    "esversion": 9,
     "esnext": false,
     "jest": true,
     "globals": {},

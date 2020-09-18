@@ -45,12 +45,14 @@ class Login extends Component {
               id="username"
               placeholder="Username/email"
               className={formStyles.inputField}
+              data-test="username-input"
               onChange={(e) => this.onChangeHandler(e)}
             />
             <input
               type="password"
               id="password"
               placeholder="Password"
+              data-test="password-input"
               className={formStyles.inputField}
               onChange={(e) => this.onChangeHandler(e)}
             />

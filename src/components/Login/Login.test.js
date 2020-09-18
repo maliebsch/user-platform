@@ -37,4 +37,29 @@ describe('login component', () => {
     const signUpInfo = findByTestAttr(component.dive(), 'signUp-info');
     expect(signUpInfo.length).toBe(1);
   });
+
+  describe('username input', () => {
+    test('should capture username correctly onChange', () => {
+      let loginComp = component.dive();
+      const username = findByTestAttr(loginComp, 'username-input');
+      username.value = 'testname';
+      username.prop('onChange')({
+        target: { id: 'username', value: 'testname' },
+      });
+      loginComp.update();
+      expect(loginComp.state('username')).toBe('testname');
+    });
+  });
+  describe('password input', () => {
+    test('should capture password correctly onChange', () => {
+      let loginComp = component.dive();
+      const password = findByTestAttr(loginComp, 'password-input');
+      password.value = 'testpw';
+      password.prop('onChange')({
+        target: { id: 'password', value: 'testpw' },
+      });
+      loginComp.update();
+      expect(loginComp.state('password')).toBe('testpw');
+    });
+  });
 });
