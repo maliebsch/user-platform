@@ -3,6 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import SignUp from './SignUp';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
+import { mapDispatchToProps } from './SignUp';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -92,10 +93,32 @@ describe('signup component', () => {
       const password = findByTestAttr(signUpComp, 'confirmPw-input');
       password.value = 'testpw';
       password.prop('onChange')({
-        target: { id: 'password', value: 'testpw' },
+        target: { id: 'confirmPassword', value: 'testpw' },
       });
       signUpComp.update();
-      expect(signUpComp.state('password')).toBe('testpw');
+      expect(signUpComp.state('confirmPassword')).toBe('testpw');
+    });
+  });
+
+  describe('dispatch action signUp', () => {
+    test('signUp should be called with new user cred', () => {
+      const newUser = {
+        username: 'testname',
+        email: 'testemail',
+        password: 'testpw',
+        confirmPassword: 'testpw',
+        imageURL: 'url',
+      };
+      const dispatch = jest.fn();
+      mapDispatchToProps(dispatch(newUser));
+      expect(dispatch).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledWith({
+        username: 'testname',
+        email: 'testemail',
+        password: 'testpw',
+        confirmPassword: 'testpw',
+        imageURL: 'url',
+      });
     });
   });
 });

@@ -3,6 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Login from './Login';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
+import { mapStateToProps, mapDispatchToProps } from './Login';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -60,6 +61,55 @@ describe('login component', () => {
       });
       loginComp.update();
       expect(loginComp.state('password')).toBe('testpw');
+    });
+  });
+
+  describe('login function call after form submit', () => {
+    test('function gets called with correct data', () => {
+      const loginForm = findByTestAttr(component.dive(), 'login-form');
+      const state = {
+        username: 'testuser',
+        password: 'testpw',
+      };
+      const onSubmitFn = jest.fn();
+      loginForm.prop('onSubmit')({
+        target: {
+          onSubmit: onSubmitFn(state),
+        },
+      });
+      loginForm.simulate('submit', { preventDefault: jest.fn() });
+      expect(onSubmitFn).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('dispatch action login', () => {
+    test('login should be called with loginCred', () => {
+      const loginCred = {
+        username: 'testname',
+        password: 'testpw',
+      };
+      const dispatch = jest.fn();
+      mapDispatchToProps(dispatch(loginCred));
+      expect(dispatch).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenCalledWith({
+        username: 'testname',
+        password: 'testpw',
+      });
+    });
+  });
+
+  describe('dispatch state to props', () => {
+    test('returns auth/authError state', () => {
+      const state = {
+        firebase: { auth: 'someAuth' },
+        auth: { authError: 'someAuthError' },
+      };
+
+      let returnValue = mapStateToProps(state);
+      expect(returnValue).toEqual({
+        auth: 'someAuth',
+        authError: 'someAuthError',
+      });
     });
   });
 });

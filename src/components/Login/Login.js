@@ -76,14 +76,14 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     authError: state.auth.authError,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+export const mapDispatchToProps = (dispatch) => {
   return {
     login: (loginCred) => dispatch(login(loginCred)),
   };
