@@ -3,6 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Login from './Login';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
+import { fireEvent } from '@testing-library/dom';
 import { mapStateToProps, mapDispatchToProps } from './Login';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -64,22 +65,19 @@ describe('login component', () => {
     });
   });
 
-  describe('login function call after form submit', () => {
-    test('function gets called with correct data', () => {
-      const loginForm = findByTestAttr(component.dive(), 'login-form');
-      const state = {
-        username: 'testuser',
-        password: 'testpw',
-      };
-      const onSubmitFn = jest.fn();
-      loginForm.prop('onSubmit')({
-        target: {
-          onSubmit: onSubmitFn(state),
-        },
-      });
-      loginForm.simulate('submit', { preventDefault: jest.fn() });
-      expect(onSubmitFn).toHaveBeenCalledTimes(1);
-    });
+  test('form submit', () => {
+    const state = {
+      username: 'testname',
+      password: 'testpw',
+    };
+    let loginComp = component.dive();
+    const loginForm = findByTestAttr(component.dive(), 'login-form');
+    const onSubmit = jest.fn();
+    const event = { preventDefault: () => {} };
+    loginComp.setState(state);
+    loginForm.simulate('submit', event);
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledWith(state);
   });
 
   describe('dispatch action login', () => {
