@@ -102,6 +102,7 @@ class SignUp extends Component {
             <input
               id="imgURL"
               className={styles.inputImgUpload}
+              data-test="imgUpload"
               type="file"
               onChange={(e) => this.onSelectionHandler(e)}
             />

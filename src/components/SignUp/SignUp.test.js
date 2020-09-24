@@ -87,6 +87,7 @@ describe('signup component', () => {
       expect(signUpComp.state('password')).toBe('testpw');
     });
   });
+
   describe('password input confirmation', () => {
     test('should capture password confirmation correctly onChange', () => {
       let signUpComp = component.dive();

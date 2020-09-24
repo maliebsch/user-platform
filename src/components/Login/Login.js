@@ -43,7 +43,7 @@ class Login extends Component {
             <input
               type="text"
               id="username"
-              placeholder="Username/email"
+              placeholder="Email"
               className={formStyles.inputField}
               data-test="username-input"
               onChange={(e) => this.onChangeHandler(e)}
