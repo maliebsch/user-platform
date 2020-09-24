@@ -8,7 +8,7 @@ import weatherStyles from './Weather.module.css';
 
 const Weather = ({ weather }) => {
   return (
-    <div className={styles.dashboardContainer}>
+    <div className={styles.dashboardContainer} data-test="component-weather">
       <div className={styles.containerHeader}>
         <h3 className={styles.containerTitle}>Weather</h3>
       </div>

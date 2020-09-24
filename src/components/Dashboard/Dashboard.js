@@ -26,29 +26,38 @@ class Dashboard extends Component {
     const { auth, profile } = this.props;
     const { weather } = this.state;
 
+    console.log(this.props);
+
+    console.log(auth);
+
     if (!auth.uid) {
       return <Redirect to="/" />;
     }
     return (
-      <div className={styles.dashboard}>
+      <div className={styles.dashboard} data-test="component-dashboard">
         <div className={styles.dashboardHeader}>
           {profile.profileImage ? (
             <img
               src={profile.profileImage}
               alt="userImg"
+              data-test="userImg"
               className={styles.userProfileImg}
             />
           ) : (
             <AccountBoxIcon className={styles.AccountBoxIcon} />
           )}
-          <h1 className={appStyles.h1}>
+          <h1 className={appStyles.h1} data-test="user-greeting">
             Good day{' '}
             <span className={styles.userProfileGreeting}>
               {profile.username}
             </span>
           </h1>
           {auth.uid ? (
-            <button onClick={this.props.logout} className={styles.logout}>
+            <button
+              onClick={this.props.logout}
+              className={styles.logout}
+              data-test="logout-button"
+            >
               Logout
             </button>
           ) : null}
