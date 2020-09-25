@@ -15,20 +15,16 @@ class Dashboard extends Component {
   };
 
   async componentDidMount() {
-    const position = await getLocation();
+    const location = await getLocation();
     let weather = null;
-    if (position !== null) {
-      weather = await fetchWeather(position);
+    if (location !== null) {
+      weather = await fetchWeather(location);
     }
     this.setState({ weather });
   }
   render() {
     const { auth, profile } = this.props;
     const { weather } = this.state;
-
-    console.log(this.props);
-
-    console.log(auth);
 
     if (!auth.uid) {
       return <Redirect to="/" />;
@@ -48,7 +44,7 @@ class Dashboard extends Component {
           )}
           <h1 className={appStyles.h1} data-test="user-greeting">
             Good day{' '}
-            <span className={styles.userProfileGreeting}>
+            <span className={styles.userProfileGreeting} data-test="username">
               {profile.username}
             </span>
           </h1>
@@ -56,19 +52,22 @@ class Dashboard extends Component {
             <button
               onClick={this.props.logout}
               className={styles.logout}
-              data-test="logout-button"
+              data-test="logout-btn"
             >
               Logout
             </button>
           ) : null}
         </div>
         <div className={styles.dashboardMain}>
-          {weather !== null ? <Weather weather={weather} /> : null}
+          {weather !== null ? (
+            <Weather weather={weather} data-test="component-weather" />
+          ) : null}
         </div>
       </div>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
