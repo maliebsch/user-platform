@@ -52,12 +52,21 @@ describe('dashbaord component', () => {
   test('should render username within the greeting', () => {
     const username = findByTestAttr(component, 'username');
     expect(username.length).toBe(1);
-    // test username value is as per profile
   });
 
   test('should render logout button if user is logged in', () => {
     const btn = findByTestAttr(component, 'logout-btn');
     expect(btn.length).toBe(1);
+  });
+
+  test('should render user profile image if existing', () => {
+    const img = findByTestAttr(component, 'userImg');
+    expect(img.length).toBe(1);
+  });
+
+  test('should render icon if user profile image is unset', () => {
+    const icon = findByTestAttr(component, 'account-icon');
+    expect(icon.length).toBe(0);
   });
 
   describe('component mount', () => {

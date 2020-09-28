@@ -40,7 +40,10 @@ class Dashboard extends Component {
               className={styles.userProfileImg}
             />
           ) : (
-            <AccountBoxIcon className={styles.AccountBoxIcon} />
+            <AccountBoxIcon
+              className={styles.AccountBoxIcon}
+              data-test="account-icon"
+            />
           )}
           <h1 className={appStyles.h1} data-test="user-greeting">
             Good day{' '}

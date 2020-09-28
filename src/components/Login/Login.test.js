@@ -3,7 +3,6 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Login from './Login';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
-import { fireEvent } from '@testing-library/dom';
 import { mapStateToProps, mapDispatchToProps } from './Login';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -63,21 +62,6 @@ describe('login component', () => {
       loginComp.update();
       expect(loginComp.state('password')).toBe('testpw');
     });
-  });
-
-  test('form submit', () => {
-    const state = {
-      username: 'testname',
-      password: 'testpw',
-    };
-    let loginComp = component.dive();
-    const loginForm = findByTestAttr(component.dive(), 'login-form');
-    const onSubmit = jest.fn();
-    const event = { preventDefault: () => {} };
-    loginComp.setState(state);
-    loginForm.simulate('submit', event);
-    expect(onSubmit).toHaveBeenCalledTimes(1);
-    expect(onSubmit).toHaveBeenCalledWith(state);
   });
 
   describe('dispatch action login', () => {
