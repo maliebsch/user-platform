@@ -71,6 +71,7 @@ class SportSearch extends Component {
   };
 
   render() {
+    console.log(this.state);
     const { result } = this.state;
     return (
       <div className={styles.sportSearch} data-test="component-sportSearch">

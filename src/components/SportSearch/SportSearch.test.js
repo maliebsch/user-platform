@@ -66,4 +66,25 @@ describe('sportSearch component', () => {
       expect(updateData).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('updateData function', () => {
+    test('should filter data correctly and set result in state', async () => {
+      const updateData = jest.fn();
+      const results = [
+        {
+          data: [
+            ['I1', '19/08/17', 'Juventus', 'Cagliari', '3', '0', 'H'],
+            ['I1', '19/08/17', 'Verona', 'Napoli', '1', '3', 'A'],
+            ['I1', '20/08/17', 'Bologna', 'Torino', '1', '1', 'D'],
+          ],
+        },
+      ];
+      await updateData(results);
+      component.update();
+      expect(component.state('dataList')).toBe([
+        { homeTeam: 'Juventus', awayTeam: 'Cagliari', result: 'H' },
+        { homeTeam: 'Verona', awayTeam: 'Napoli', result: 'A' },
+      ]);
+    });
+  });
 });
