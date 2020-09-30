@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import SportSearch from './SportSearch';
+import Papa from 'papaparse';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -54,10 +55,15 @@ describe('sportSearch component', () => {
 
   describe('component mount', () => {
     test('should call updateData after completion', () => {
-      const spy = jest.spyOn(component.instance(), 'updateData');
+      const updateData = jest.fn();
+      Papa.parse('test.csv', {
+        download: true,
+        header: false,
+        complete: updateData(),
+      });
       component.instance().componentDidMount();
       component.update();
-      expect(spy).toHaveBeenCalledTimes(1);
+      expect(updateData).toHaveBeenCalledTimes(1);
     });
   });
 });
