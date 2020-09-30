@@ -17,7 +17,7 @@ const Weather = ({ weather }) => {
       <div className={styles.containerMain}>
         <div className={weatherStyles.weatherInfo}>
           <p>
-            {weather[0].thumbnail !== 'Sun' || 'Rain' || 'Clouds' ? (
+            {weather[0].thumbnail !== ('Sun' && 'Rain' && 'Clouds') ? (
               <CalendarTodayIcon
                 className={weatherStyles.calenderIcon}
                 data-test="weather-icon-generic"

@@ -47,7 +47,7 @@ describe('weather component', () => {
     expect(location.length).toBe(1);
   });
 
-  test('should render weather icon given by weather prop', () => {
+  test('should render weather icon(cloud) given by weather prop', () => {
     const weatherIconCloud = findByTestAttr(component, 'weather-icon-cloud');
     const weatherIconSun = findByTestAttr(component, 'weather-icon-sun');
     const weatherIconRain = findByTestAttr(component, 'weather-icon-rain');
