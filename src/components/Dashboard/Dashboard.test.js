@@ -3,10 +3,10 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Dashboard from './Dashboard';
 import { storeFactory, findByTestAttr } from '../../test/testUtils';
-import { getLocation, fetchWeather } from '../../api/index';
+import { getLocation, fetchWeather } from '../../api/api';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
-jest.mock('../../api/index');
+jest.mock('../../api/api');
 
 const setUp = (
   initialState = {

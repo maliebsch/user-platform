@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../store/actions/authActions';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-import { fetchWeather, getLocation } from '../../api/index';
+import { fetchWeather, getLocation } from '../../api/api';
 import Weather from '../Weather/Weather';
 import Sport from '../Sport/Sport';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
