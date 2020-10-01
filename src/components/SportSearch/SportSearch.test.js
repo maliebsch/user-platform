@@ -87,4 +87,24 @@ describe('sportSearch component', () => {
       ]);
     });
   });
+
+  describe('search form submit', () => {
+    test('should capture search query correctly and filter dataList results before setting new state', () => {
+      const mockState = {
+        query: 'Juventus',
+        dataList: [
+          { homeTeam: 'Juventus', awayTeam: 'Cagliari', result: 'H' },
+          { homeTeam: 'Cagliari', awayTeam: 'Juventus', result: 'A' },
+          { homeTeam: 'Verona', awayTeam: 'Napoli', result: 'A' },
+        ],
+      };
+      const searchForm = findByTestAttr(component, 'search-form');
+      const mockEvent = { preventDefault: jest.fn() };
+      component.setState(mockState);
+      searchForm.simulate('submit', mockEvent);
+      component.update();
+      expect(component.state('query')).toBe('');
+      expect(component.state('result')).toEqual(['Cagliari']);
+    });
+  });
 });

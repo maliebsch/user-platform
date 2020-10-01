@@ -39,7 +39,6 @@ class SportSearch extends Component {
       }
       return dataList;
     });
-
     this.setState({ dataList });
   }
 
@@ -62,16 +61,13 @@ class SportSearch extends Component {
       } else if (data.awayTeam === query && data.result === 'A') {
         updatedList.push(data.homeTeam);
       }
-      const result = updatedList.filter(
-        (value, index) => updatedList.indexOf(value) !== index,
-      );
+      const result = [...new Set(updatedList)];
       this.setState({ result, query: '' });
       return result;
     });
   };
 
   render() {
-    console.log(this.state);
     const { result } = this.state;
     return (
       <div className={styles.sportSearch} data-test="component-sportSearch">
