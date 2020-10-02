@@ -1,0 +1,9 @@
+.newsArticle {
+    margin: 0 50px;
+}
+
+@media only screen and (max-device-width: 767px) {
+    .newsArticle {
+        margin: 0;
+    }
+}

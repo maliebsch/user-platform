@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import { fetchWeather, getLocation } from '../../api/api';
 import Weather from '../Weather/Weather';
+import News from '../News/News';
 import Sport from '../Sport/Sport';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import styles from './Dashboard.module.css';
@@ -67,6 +68,7 @@ class Dashboard extends Component {
             <Weather weather={weather} data-test="component-weather" />
           ) : null}
           <Sport />
+          <News />
         </div>
       </div>
     );
