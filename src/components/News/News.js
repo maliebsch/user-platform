@@ -12,17 +12,12 @@ class News extends Component {
     await fetch(
       'https://cors-anywhere.herokuapp.com/http://feeds.bbci.co.uk/news/rss.xml',
     )
-      .then((response) => {
-        console.log(response);
-        return response.text();
-      })
+      .then((response) => response.text())
       .then((str) => {
         console.log(str);
-        console.log(new DOMParser().parseFromString(str, 'text/xml'));
-        return new DOMParser().parseFromString(str, 'text/xml');
+        new window.DOMParser().parseFromString(str, 'text/xml');
       })
       .then((data) => {
-        console.log(data.body);
         const latest = data.querySelector('item');
         const news = {
           title: latest.querySelector('title').textContent,
@@ -35,7 +30,6 @@ class News extends Component {
 
   render() {
     const { news } = this.state;
-    console.log(news);
     return (
       <div>
         <Link
