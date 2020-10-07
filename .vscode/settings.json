@@ -1,0 +1,23 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Cascadia Code'",
+    "editor.formatOnSave": true,
+    "editor.fontSize": 16,
+    "editor.wordWrap": "on",
+    "editor.cursorStyle": "block",
+    "eslint.enable": false,
+    "eslint.lintTask.options": "",
+    "jshint.options": {
+
+        "esversion": 6
+    },
+    "eslint.options": {
+        "env": {
+            "es6": true
+        },
+        "parserOptions": {
+            "ecmaVersion": 7
+        }
+    },
+
+}
